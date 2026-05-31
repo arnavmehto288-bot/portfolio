@@ -10,9 +10,11 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
+  "/images/python.png",
   "/images/react2.webp",
   "/images/next2.webp",
   "/images/node2.webp",
@@ -128,6 +130,8 @@ const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
+    ScrollTrigger.refresh();
+
     const handleScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
       const threshold = document

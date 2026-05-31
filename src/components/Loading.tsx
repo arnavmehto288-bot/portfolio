@@ -28,6 +28,12 @@ const Loading = ({ percent }: { percent: number }) => {
             module.initialFX();
           }
           setIsLoading(false);
+          // Wait for DOM to update and settle, then refresh ScrollTrigger
+          setTimeout(() => {
+            import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+              ScrollTrigger.refresh();
+            });
+          }, 150);
         }, 900);
       }
     });
